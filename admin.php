@@ -38,7 +38,7 @@ function shortcode_cleanup_admin_page() {
 						$registered_tags=($_POST['sc-wrap-tags']);
 						if(isset($_POST['sc-unregistered-wrap'])){				
 							foreach($_POST['sc-unregistered-wrap-tags'] as $key=>$tag){
-								if($_POST['sc-unregistered-wrap'][$key]){
+								if(isset($_POST['sc-unregistered-wrap'][$key])){
 									$unregistered_tags[]=$tag;
 								}						
 							}
@@ -51,7 +51,7 @@ function shortcode_cleanup_admin_page() {
 						$registered_tags=($_POST['sc-replace-tags']);
 						if(isset($_POST['sc-unregistered-replace'])){				
 							foreach($_POST['sc-unregistered-replace-tags'] as $key=>$tag){
-								if($_POST['sc-unregistered-replace'][$key]){
+								if(isset($_POST['sc-unregistered-replace'][$key])){
 									$unregistered_tags[]=$tag;
 								}						
 							}
@@ -63,7 +63,7 @@ function shortcode_cleanup_admin_page() {
 						
 						if(isset($_POST['sc-unregistered-delete'])){				
 							foreach($_POST['sc-unregistered-delete-tags'] as $key=>$tag){
-								if($_POST['sc-unregistered-delete'][$key]){
+								if(isset($_POST['sc-unregistered-delete'][$key])){
 									$unregistered_tags[]=$tag;
 								}						
 							}				
@@ -112,11 +112,6 @@ function shortcode_cleanup_admin_page() {
 	.sc_td_checkbox_unregistered label.sc_unregistered_tag_label{
 		margin-left:-13px;
 	}
-	/*.sc_td_checkbox_unregistered textarea{
-		width:60%;
-		margin-left:5%;
-		height:55px;
-	}*/
 	.sc_td_checkbox_unregistered{
 		padding-bottom:15px;
 	}
@@ -152,14 +147,11 @@ function shortcode_cleanup_admin_page() {
 		function unDisableSubmit(obj, submitbutton){
                submitbutton.disabled=true; 
                if (obj.checked){submitbutton.disabled=false;}
-		}
-			
+		}			
 	</script>
 	
 	<div class="wrap">	
-	<h2>Shortcode Cleanup Utility (Beta Version)</h2>
-	
-	<h4>I hope you find this plugin useful and I would value hearing your opinions, suggestions and complaints. <span class="red" >Please make a backup of your site before you use this utility and please do not use it on a live site.  It has only been minimally tested and the modifications it makes to your site are not reversable</span></h4>
+	<h2>Shortcode Cleanup Utility</h2>
 	<?php foreach($messages as $message => $type){ ?>
 		<div class="sc-message <?php echo $type ?>" ><?php echo '<p>'.$message.'</p>'; ?></div>
 	<?php } ?>
@@ -272,6 +264,6 @@ function shortcode_cleanup_admin_page() {
 	<?php } ?>
 	</div>
 	<?php 
-
 	}
 }
+?>

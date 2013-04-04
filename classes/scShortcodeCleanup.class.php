@@ -1,5 +1,4 @@
 ﻿<?php
-
 if(!class_exists('scShortcodeCleanup')){
 	class scShortcodeCleanup{
 
@@ -141,7 +140,7 @@ if(!class_exists('scShortcodeCleanup')){
 			}
 			$this->make_message($shortcode_tags, 'deleted' );
 			$shortcode_tags=$save_shortcode_tags; // put the global $shortcode_tags back the way we found it
-		}
-		
+		}		
 	}	
-}
+} 
+?>
